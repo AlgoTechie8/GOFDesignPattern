@@ -6,7 +6,7 @@ import com.algotechie.singleton.InnerStaticHelperSingleton;
 import com.algotechie.singleton.LazyInitializationSingleton;
 import com.algotechie.singleton.StaticBlockInitializationSingletonClass;
 
-public class SimpleSingletonTest {
+public class SimpleSingletonMain {
 
 	// But here is problem with Multi-Threading, Cloning, Serialization, and Reflaction will break the simple approach
 	// To Solve Above proble we have to gave solution
