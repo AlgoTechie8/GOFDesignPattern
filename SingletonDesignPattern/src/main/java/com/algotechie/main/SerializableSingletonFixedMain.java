@@ -19,12 +19,12 @@ public class SerializableSingletonFixedMain {
 		// Serialization process
 		ObjectOutput out = new ObjectOutputStream(new FileOutputStream("serialization1.ser"));
 		out.writeObject(obj1);
-		out.close();
+		out.close(); // IOException
 		
 		// Deserialization
 		ObjectInput in = new ObjectInputStream(new FileInputStream("serialization1.ser"));
 		SerializableSingleton obj2 = (SerializableSingleton) in.readObject();
-		in.close();		
+		in.close();	// ClassNotFoundException, IOException
 		System.out.println("Serialization Check : "+(obj1 == obj2)); // true
 		System.out.println("Object 1 hashcode : "+obj1.hashCode());
 		System.out.println("Object 2 hashcode : "+obj2.hashCode());

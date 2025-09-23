@@ -15,7 +15,7 @@ public class NonFixedSingleton implements Cloneable, Serializable{
 	// Declare static method to create only one instance of same class
 	public static NonFixedSingleton getInstance() {
 		if(instance == null) {
-			instance = new NonFixedSingleton();
+			instance = new NonFixedSingleton();  // multiple threads may create multiple instances
 		}
 		return instance;
 	}

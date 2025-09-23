@@ -53,7 +53,14 @@ public class SingletonBreakerMain {
 		System.out.println("Object 5 hashcode : "+obj5.hashCode());
 		System.out.println();
 		
-		
+		// 05 break Using Multi-threading issue (run threads that call getInstance())
+		 System.out.println("Multi-Threading : ");		
+		Runnable task = () -> {
+			NonFixedSingleton obj6 = NonFixedSingleton.getInstance();
+			 System.out.println("Thread got instance: " + obj6.hashCode());
+		};
+		Thread t1 = new Thread(task);
+		Thread t2 = new Thread(task);
+		t1.start(); t2.start(); // may print different hashCodes
 	}
-
 }
