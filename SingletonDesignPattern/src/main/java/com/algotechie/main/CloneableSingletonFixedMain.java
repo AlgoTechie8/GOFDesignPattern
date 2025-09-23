@@ -8,7 +8,7 @@ public class CloneableSingletonFixedMain {
 	public static void main(String[] args) throws CloneNotSupportedException {
 		// Fixed cloning 
 		CloneableSingleton obj1 = CloneableSingleton.getInstance();
-		Cloneable obj2 = (Cloneable) obj1.clone(); // Through exception said CloneNotSupportedException
+		CloneableSingleton obj2 = (CloneableSingleton) obj1.clone(); // Through exception said CloneNotSupportedException
 		System.out.println("Cloning Check : "+(obj1 == obj2)); 
 	}
 	

@@ -24,7 +24,7 @@ public class SerializableSingleton implements Serializable{
 	 * Protected method only accessable in same package or its subclasses.
 	 * Note : That is reason I made it public for testing purpose
 	 */
-	public Object readResolve() {
+	protected Object readResolve() {
 		return instance; // getInstance()
 	}
 }
