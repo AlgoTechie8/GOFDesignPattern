@@ -1,7 +1,9 @@
 package com.algotechie.singleton;
 
+import java.io.Serializable;
+
 // If the Singleton class implements Cloneable, the clone() method can create a new object.
-public class NonFixedSingleton implements Cloneable{
+public class NonFixedSingleton implements Cloneable, Serializable{
 	// Declare a private and static member of same class-type in the class
 	private static NonFixedSingleton instance;
 	
@@ -27,5 +29,7 @@ public class NonFixedSingleton implements Cloneable{
             throw new AssertionError(); // should never happen
         }
     }
+    
+    // When you serialize and then deserialize a Singleton, a new instance gets created.
 
 }

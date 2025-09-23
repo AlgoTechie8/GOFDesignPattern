@@ -1,5 +1,12 @@
 package com.algotechie.main;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
@@ -7,7 +14,7 @@ import com.algotechie.singleton.NonFixedSingleton;
 
 public class SingletonBreakerMain {
 
-	public static void main(String[] args) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public static void main(String[] args) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException, ClassNotFoundException {
 
 		// 01 Normal Check		
 		NonFixedSingleton obj1 = NonFixedSingleton.getInstance();
@@ -31,6 +38,22 @@ public class SingletonBreakerMain {
 		System.out.println("Cloning Check : "+(obj1 == obj4)); // false (broken)
 		System.out.println("Object 4 hashcode : "+obj4.hashCode());
 		System.out.println();
+		
+		// 04 break using Serialization / Deserialization
+		
+		// When you serialize and then deserialize a Singleton, a new instance gets created.
+		ObjectOutput os = new ObjectOutputStream(new FileOutputStream("serialization.ser"));
+		os.writeObject(obj1); // IOException
+		os.close();
+		
+		ObjectInput is = new ObjectInputStream(new FileInputStream("serialization.ser"));
+		NonFixedSingleton obj5 = (NonFixedSingleton) is.readObject(); //IOException, ClassNotFoundException
+		is.close();
+		System.out.println("Serialization Check : "+(obj1 == obj5));// false (Broken)
+		System.out.println("Object 5 hashcode : "+obj5.hashCode());
+		System.out.println();
+		
+		
 	}
 
 }
