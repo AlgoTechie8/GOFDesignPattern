@@ -11,10 +11,14 @@ public class MultiThreadingSingleton {
 	}
 	
 	// Declare synchronized, static factory method to create instance of same class only once
-	// Synchronized method (simplest but slower)
-	public synchronized static MultiThreadingSingleton getInstance() {
+	// Double-Checked Locking (lazy + thread-safe)
+	public  static MultiThreadingSingleton getInstance() {
 		if (instance == null) {
-			instance = new MultiThreadingSingleton();
+			synchronized (MultiThreadingSingleton.class) {
+				if (instance == null) {
+					instance = new MultiThreadingSingleton();
+				}
+			}
 		}
 		return instance;
 	}
