@@ -12,7 +12,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import com.algotechie.singleton.AllFixedSingleton;
-import com.algotechie.singleton.SerializableSingleton;
+import com.algotechie.singleton.FixedSerializableSingleton;
 
 public class AllFixedSingletonMain {
 

@@ -3,19 +3,19 @@ package com.algotechie.singleton;
 import java.io.Serializable;
 
 //07. Serialization / Deserialization 
-public class SerializableSingleton implements Serializable{
+public class FixedSerializableSingleton implements Serializable{
 	// Declare same class-type member as private and static
-	private static SerializableSingleton instance;
+	private static FixedSerializableSingleton instance;
 	
 	// Declare Constructor as private
-	private SerializableSingleton() {
+	private FixedSerializableSingleton() {
 		// No Operation
 	}
 	
 	// Declare static method to create only one instance of same class
-	public static SerializableSingleton getInstance() {
+	public static FixedSerializableSingleton getInstance() {
 		if (instance == null) {
-			instance = new SerializableSingleton();
+			instance = new FixedSerializableSingleton();
 		}
 		return instance;
 	}

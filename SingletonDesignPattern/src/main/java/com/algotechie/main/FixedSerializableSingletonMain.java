@@ -8,13 +8,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
-import com.algotechie.singleton.SerializableSingleton;
+import com.algotechie.singleton.FixedSerializableSingleton;
 
 //07. Serialization / Deserialization 
-public class SerializableSingletonFixedMain {
+public class FixedSerializableSingletonMain {
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		// Normal Check		
-		SerializableSingleton obj1 = SerializableSingleton.getInstance();
+		FixedSerializableSingleton obj1 = FixedSerializableSingleton.getInstance();
 		
 		// Serialization process
 		ObjectOutput out = new ObjectOutputStream(new FileOutputStream("serialization1.ser"));
@@ -23,7 +23,7 @@ public class SerializableSingletonFixedMain {
 		
 		// Deserialization
 		ObjectInput in = new ObjectInputStream(new FileInputStream("serialization1.ser"));
-		SerializableSingleton obj2 = (SerializableSingleton) in.readObject();
+		FixedSerializableSingleton obj2 = (FixedSerializableSingleton) in.readObject();
 		in.close();	// ClassNotFoundException, IOException
 		System.out.println("Serialization Check : "+(obj1 == obj2)); // true
 		System.out.println("Object 1 hashcode : "+obj1.hashCode());

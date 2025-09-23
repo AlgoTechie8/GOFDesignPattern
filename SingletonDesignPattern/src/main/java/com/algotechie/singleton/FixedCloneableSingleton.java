@@ -1,19 +1,19 @@
 package com.algotechie.singleton;
 
 //08. Cloning
-public class CloneableSingleton implements Cloneable{
+public class FixedCloneableSingleton implements Cloneable{
 	// Declare same class-type member as a private and static
-	private static CloneableSingleton instance;
+	private static FixedCloneableSingleton instance;
 	
 	// Declare Constructor as private, so no one can create object outside the class 
-	private CloneableSingleton() {
+	private FixedCloneableSingleton() {
 		// No Operation
 	}
 	
 	// Declare a static factory method to create same class-type object and return it
-	public static CloneableSingleton getInstance() {
+	public static FixedCloneableSingleton getInstance() {
 		if(instance == null) {
-			instance = new CloneableSingleton();
+			instance = new FixedCloneableSingleton();
 		}
 		return instance;
 	}

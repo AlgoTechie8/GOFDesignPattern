@@ -1,22 +1,22 @@
 package com.algotechie.singleton;
 
 //09. Multi-Threading
-public class MultiThreadingSingleton {
+public class FixedMultiThreadingSingleton {
 	// Declare same class-type member as private, static
-	private static MultiThreadingSingleton instance;
+	private static FixedMultiThreadingSingleton instance;
 	
 	// Declare Constructor as private
-	private MultiThreadingSingleton() {
+	private FixedMultiThreadingSingleton() {
 		// No Operation
 	}
 	
 	// Declare synchronized, static factory method to create instance of same class only once
 	// Double-Checked Locking (lazy + thread-safe)
-	public  static MultiThreadingSingleton getInstance() {
+	public  static FixedMultiThreadingSingleton getInstance() {
 		if (instance == null) {
-			synchronized (MultiThreadingSingleton.class) {
+			synchronized (FixedMultiThreadingSingleton.class) {
 				if (instance == null) {
-					instance = new MultiThreadingSingleton();
+					instance = new FixedMultiThreadingSingleton();
 				}
 			}
 		}

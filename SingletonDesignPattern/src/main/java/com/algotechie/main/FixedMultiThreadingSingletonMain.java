@@ -1,18 +1,18 @@
 package com.algotechie.main;
 
-import com.algotechie.singleton.MultiThreadingSingleton;
+import com.algotechie.singleton.FixedMultiThreadingSingleton;
 
 //09. Multi-Threading
-public class MultiThreadingSingletonMain {
+public class FixedMultiThreadingSingletonMain {
 
 	public static void main(String[] args) {
 		
-		MultiThreadingSingleton obj1 =  MultiThreadingSingleton.getInstance();
+		FixedMultiThreadingSingleton obj1 =  FixedMultiThreadingSingleton.getInstance();
 		System.out.println("Object 1 hashcode : "+obj1.hashCode());
 		System.out.println();
 		
 		Runnable task = () -> {
-			MultiThreadingSingleton obj2 = MultiThreadingSingleton.getInstance();
+			FixedMultiThreadingSingleton obj2 = FixedMultiThreadingSingleton.getInstance();
 			System.out.println("Thread got instance: " + obj2.hashCode());
 		};
 		Thread t1 = new Thread(task);
