@@ -26,6 +26,11 @@ public class SingletonBreakerMain {
 		System.out.println("Object 3 hashcode : "+obj3.hashCode());
 		System.out.println();
 		
+		// 03 Break using Cloning
+		NonFixedSingleton obj4 = (NonFixedSingleton) obj1.clone();
+		System.out.println("Cloning Check : "+(obj1 == obj4)); // false (broken)
+		System.out.println("Object 4 hashcode : "+obj4.hashCode());
+		System.out.println();
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.algotechie.singleton;
 
-public class NonFixedSingleton {
+// If the Singleton class implements Cloneable, the clone() method can create a new object.
+public class NonFixedSingleton implements Cloneable{
 	// Declare a private and static member of same class-type in the class
 	private static NonFixedSingleton instance;
 	
@@ -17,5 +18,14 @@ public class NonFixedSingleton {
 		return instance;
 	}
 	
+	// Override clone and make it public
+    @Override
+    public NonFixedSingleton clone() {
+        try {
+            return (NonFixedSingleton) super.clone(); // call Object.clone() // // vulnerable
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError(); // should never happen
+        }
+    }
 
 }
